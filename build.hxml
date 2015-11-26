@@ -1,0 +1,19 @@
+# Generates one single application JS
+-main ProgrammingLanguageNr1
+-js bin/sprak.js
+-cp src
+#
+# --next
+# Generates JS file for individual hx files
+# -js bin/Tree.js 
+# -cp src 
+# com.jungle.Tree
+# --next
+# -js bin/Animal.js 
+# -cp src 
+# com.jungle.Animal
+# --next
+# -js bin/Jungle.js 
+# -cp src 
+# com.jungle.Jungle
+#
