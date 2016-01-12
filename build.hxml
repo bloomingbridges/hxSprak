@@ -1,9 +1,29 @@
+
+# Generates CSharp source files
+# -main ProgrammingLanguageNr1
+# -cs bin/cs
+# -cp src
+# -D haxe3
+# -D no-compilation
+
 # Generates one single application JS
--main ProgrammingLanguageNr1
--js bin/sprak.js
--cp src
-#
 # --next
+-main ProgrammingLanguageNr1
+-js bin/js/sprak.js
+-cp src
+
+# Execute JS version after compilation
+--next
+-cmd clear
+-cmd node bin/js/sprak.js
+
+# Build and execute Neko version
+# --next
+# -main ProgrammingLanguageNr1
+# -cp src
+# -neko bin/neko/sprak.n
+# -cmd neko bin/neko/sprak.n
+
 # Generates JS file for individual hx files
 # -js bin/Tree.js 
 # -cp src 
@@ -16,4 +36,3 @@
 # -js bin/Jungle.js 
 # -cp src 
 # com.jungle.Jungle
-#

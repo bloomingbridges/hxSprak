@@ -54,9 +54,9 @@ enum TokenType {
 class Token {
 
     private var m_tokenType:TokenType;
-     public var m_tokenString:String;
-     public var m_lineNr:Int = -1;
-     public var m_linePosition:Int = -1;
+    private var m_tokenString:String;
+    private var m_lineNr:Int = -1;
+    private var m_linePosition:Int = -1;
 
     public function new(tokenType:TokenType, tokenString:String, ?lineNr:Int, ?linePosition:Int) {
         m_tokenType = tokenType;
@@ -86,6 +86,31 @@ class Token {
                 return m_tokenString == other.getTokenString();
         }
         return false;
+    }
+
+    public var LineNr(never, set):Int;
+    function set_LineNr(value) {
+        return m_lineNr = value;
+    }
+    
+    public var LinePosition(never, set):Int;
+    function set_LinePosition(value) {
+        return m_linePosition = value;
+    }
+
+}
+
+class TokenWithValue extends Token {
+
+    private var m_value:Dynamic;
+
+    public function new(tokenType:TokenType, tokenString:String, ?lineNr:Int, ?linePosition:Int, pValue:Dynamic) {
+        super(tokenType, tokenString, lineNr, linePosition);
+        m_value = pValue;
+    }
+
+    public function getValue():Dynamic {
+        return m_value;
     }
 
 }

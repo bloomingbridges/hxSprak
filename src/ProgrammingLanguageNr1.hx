@@ -1,14 +1,16 @@
 package;
 
-typedef Token = sprak.tokenizer.Token;
+import glue.TextReader;
+import sprak.tokenizer.*;
+import sprak.errors.*;
 
 @:expose("Sprak")
 class ProgrammingLanguageNr1
 {
     public function new() {
-        trace("Hallå, värld!");
-        var token = new Token(EOF, "");
-        trace(token.toString());
+        var tokenizer = new Tokenizer(new ErrorHandler(), false);
+        var tr = new TextReader("Hallå, värld!");
+        tokenizer.process(tr);
     }
     static public function test() {
         trace("This is only a test, of the emergency broadcast system..");
